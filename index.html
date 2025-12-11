@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>SUDOMSUR - Suplidora Dominicana del Sur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --mouse-x: 0;
+        --mouse-y: 0;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Custom Scrollbar for Desktop */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+
+      /* Hide Scrollbar but allow scrolling (Mobile UX) */
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Animation Utilities */
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+      
+      /* Optimized CSS Animations */
+      .animate-float-optimized {
+        animation: float 6s ease-in-out infinite;
+        will-change: transform;
+      }
+      
+      .pupil-track {
+        transform: translate(calc(var(--mouse-x) * 3px), calc(var(--mouse-y) * 2px));
+        transition: transform 0.1s ease-out;
+        will-change: transform;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              primary: 'var(--color-primary)',
+              secondary: 'var(--color-secondary)',
+              accent: 'var(--color-accent)',
+              surface: 'var(--color-surface)',
+            },
+            backgroundImage: {
+              'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.04%22/%3E%3C/svg%3E')",
+            },
+            boxShadow: {
+              'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+              'card': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'bounce-slow': 'bounce 3s infinite',
+              'bounce-short': 'bounce 1s infinite',
+              'slide-up': 'slideUp 0.3s ease-out forwards',
+              'slide-left': 'slideLeft 0.3s ease-out forwards',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+              'expand': 'expand 0.2s ease-out forwards',
+              'blink': 'blink 4s infinite',
+              'wave': 'wave 2s infinite',
+              'jelly': 'jelly 0.6s ease-in-out',
+              'pop-in': 'popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+              'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+              'twinkle': 'twinkle 4s ease-in-out infinite',
+              'drift-slow': 'drift 20s linear infinite',
+              'spin-super-slow': 'spin 120s linear infinite',
+            },
+            keyframes: {
+              float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+              slideUp: { '0%': { transform: 'translate(-50%, 100%)', opacity: '0' }, '100%': { transform: 'translate(-50%, 0)', opacity: '1' } },
+              slideLeft: { '0%': { transform: 'translateX(100%)' }, '100%': { transform: 'translateX(0)' } },
+              fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+              fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+              expand: { '0%': { transform: 'scaleY(0)', opacity: '0' }, '100%': { transform: 'scaleY(1)', opacity: '1' } },
+              blink: { '0%, 96%, 98%': { transform: 'scaleY(1)' }, '97%, 99%': { transform: 'scaleY(0.1)' } },
+              wave: { '0%, 100%': { transform: 'rotate(0deg)' }, '50%': { transform: 'rotate(15deg)' } },
+              jelly: { '0%, 100%': { transform: 'scale(1, 1)' }, '25%': { transform: 'scale(0.9, 1.1)' }, '50%': { transform: 'scale(1.1, 0.9)' }, '75%': { transform: 'scale(0.95, 1.05)' } },
+              popIn: { '0%': { opacity: '0', transform: 'scale(0.5)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
+              shake: { '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' }, '20%, 80%': { transform: 'translate3d(2px, 0, 0)' }, '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' }, '40%, 60%': { transform: 'translate3d(4px, 0, 0)' } },
+              twinkle: { '0%, 100%': { opacity: '1', transform: 'scale(1)' }, '50%': { opacity: '0.3', transform: 'scale(0.8)' } },
+              drift: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(50px)' } }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-500 selection:text-white overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "SUDOMSUR App",
+  "description": "Suplidora Dominicana del Sur - PWA inteligente con gestión de inventario, ventas y generación de contenido mediante IA.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
